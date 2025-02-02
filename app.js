@@ -3,18 +3,18 @@ let numIntentos = 0;
 let listaNumerosSorteados = [];
 let numeroMaximo = 10;
 
-let animacionEjecutada = false; // Controla si la animación ya se hizo
+let animacionEjecutada = false; 
 
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
 
-    if (!elementoHTML) return; // Evitar errores si el elemento no existe
+    if (!elementoHTML) return; 
 
     if (elemento === 'h1' && !animacionEjecutada) {
-        escribirTexto(elementoHTML, texto, 50); // Solo animar una vez
+        escribirTexto(elementoHTML, texto, 50);
         animacionEjecutada = true;
     } else {
-        elementoHTML.innerHTML = texto; // Actualizar sin animación
+        elementoHTML.innerHTML = texto;
     }
 }
 
