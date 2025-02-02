@@ -3,15 +3,18 @@ let numIntentos = 0;
 let listaNumerosSorteados = [];
 let numeroMaximo = 10;
 
+let animacionEjecutada = false; // Controla si la animación ya se hizo
+
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
 
-    if (!elementoHTML) return;
+    if (!elementoHTML) return; // Evitar errores si el elemento no existe
 
-    if (elemento === 'h1') {
-        escribirTexto(elementoHTML, texto, 50);
+    if (elemento === 'h1' && !animacionEjecutada) {
+        escribirTexto(elementoHTML, texto, 50); // Solo animar una vez
+        animacionEjecutada = true;
     } else {
-        elementoHTML.innerHTML = texto;
+        elementoHTML.innerHTML = texto; // Actualizar sin animación
     }
 }
 
@@ -83,7 +86,6 @@ function escribirTexto(elemento, texto, velocidad) {
             clearInterval(intervalo);
         }
     }, velocidad);
-    limpiarEntrada();
 }
 
 
