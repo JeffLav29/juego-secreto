@@ -5,8 +5,16 @@ let numeroMaximo = 10;
 
 function asignarTextoElemento(elemento, texto) {
     let elementoHTML = document.querySelector(elemento);
-    escribirTexto(elementoHTML, texto, 50);
+
+    if (!elementoHTML) return;
+
+    if (elemento === 'h1') {
+        escribirTexto(elementoHTML, texto, 50);
+    } else {
+        elementoHTML.innerHTML = texto;
+    }
 }
+
 
 function generarNumeroSecreto() {
     let numeroGenerado = Math.floor(Math.random() * numeroMaximo) + 1;
@@ -75,6 +83,7 @@ function escribirTexto(elemento, texto, velocidad) {
             clearInterval(intervalo);
         }
     }, velocidad);
+    limpiarEntrada();
 }
 
 
